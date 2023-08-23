@@ -408,7 +408,7 @@ object{
   /* pqy show */
   navbar {
     height: 100%; /* Full-height */
-    width: 200px; /* Set the width of the sidebar */
+    width: 250px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
@@ -434,28 +434,44 @@ object{
   
   /* Style the main content */
   .main {
-    margin-left: 200px; /* Same as the width of the sidebar */
+    margin-left: 250px; /* Same as the width of the sidebar */
     padding: 0px 10px;
+  }
+  .question{
+    padding: 30px 10px;
   }
   
   /* Style the images */
+  img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
   </style>
 
   <navbar>
     {% for i in data %}
-    <a href="/pyq_year/{{i.student_year}}/{{i.branch_name}}/{{i.year}}">{{i.year}}-{{i.branch_name}}{{i.student_year}}</a>
+    <a href="/pyq_year/{{i.student_year}}/{{i.branch_name}}/{{i.year}}">{{i.year}}-{{i.branch_name}} {{i.student_year}} <sub>st</sub></a>
     {% endfor %}
   </navbar>
   
   <!-- Main content -->
 
   <div class="main">
-  <h2>Side Navbar Example</h2>
-  <img src="image1.jpg" alt="Image1">
+  <h2>Previous Year Question Paper</h2>
+  {% if show == none %}
+    <h2 style="margin-top: 30px;">Please Select The Year</h2>
+  {% else %}
   {% for j in show %}
+  <div class="question">
+  <h2>{{j.pyq_title}} {{j.year}} {{j.branch_name}}-{{j.student_year}} Year</h2>
   <img src="/media/{{j.pyq_Image}}" alt="">
-    {{j.year}} {{j.branch}} {{j.student_year}} {{j.pyq_title}}
+  </div>
   {% endfor %}
+  <!-- <h3>Donload In PDF Formate- <embed src="/media/{{pdf.pyq_pdf}}" height="500px" width="500px" type="application/pdf"></embed></h3> -->
+  <h3>Donload In PDF Formate-  <a type="application/pdf" target="_blank" href="/media/{{pdf}}">Download<a></h3>
+  {% endif %}
+  
   </div>
 {% endblock %}

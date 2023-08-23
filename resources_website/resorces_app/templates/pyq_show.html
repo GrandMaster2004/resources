@@ -4,7 +4,7 @@
 {% load static %}
 {% block 'mainContent' %}
 
-    {% for i in data %}
+    <!-- {% for i in data %}
         {{i.branch_name}}<br><br>
         {{i.pyq_Image}}<br>
         <img src="/media/{{i.pyq_Image}}" alt="images"><br><br>
@@ -12,7 +12,8 @@
         {{i.pyq_details}}<br><br>
         {{i.pyq_id}}<br><br>
         
-    {% endfor %}
+    {% endfor %} -->
+    
 <!-- Side navbar -->
 <navbar>
   <a href="/pyq_year/1/{{branch}}">{{branch}}-I</a>
@@ -23,9 +24,8 @@
 
 <!-- Main content -->
 <div class="main">
-<h2>Side Navbar Example</h2>
-<img src="image1.jpg" alt="Image1">
-
+<!-- <h2>Previous Year Question Paper</h2> -->
+<h2>Please Select The Year</h2>
 </div>
 
 {% endblock %}

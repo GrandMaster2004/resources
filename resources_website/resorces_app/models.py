@@ -16,3 +16,9 @@ class pyq(models.Model):
     pyq_title = models.CharField(max_length=30)
     year = models.CharField(max_length=20)
     student_year = models.CharField(max_length=1)
+
+class pdf_formate(models.Model):
+    branch_name = models.CharField(max_length=30)
+    year = models.CharField(max_length=20)
+    student_year = models.CharField(max_length=1)
+    pyq_pdf = models.FileField(upload_to='pyq_pdfs')

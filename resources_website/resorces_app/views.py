@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import AddBranch,pyq
+from .models import AddBranch,pyq,pdf_formate
 
 # Create your views here.
 
@@ -15,26 +15,21 @@ def def_pyq(request,branch_name):
     return render(request, 'pyq_show.html',{'data':pyq_data,'branch':branch})
 
 def show_year(request,student_year,branch_name):
-    print(f'{student_year} *******************%%%%%%%%%%%%%%%%%%')
     sem_year = student_year
     branch = branch_name
-    pyq_year = pyq.objects.filter(student_year=sem_year,branch_name=branch)
-    print(f'{pyq_year} -_________________________________----------')
+    pyq_year = pdf_formate.objects.filter(student_year=sem_year,branch_name=branch)
     return render(request, 'year_wise.html',{'data':pyq_year})
 
 def year_year(request,student_year,branch_name,year):
-    print(f'{year} *******************%%%000%%%%%%%%%%%%%%% year')
     sem_year = student_year
     branch = branch_name
     pyq_year = pyq.objects.filter(student_year=sem_year,branch_name=branch,year=year)
-    pyq_year1 = pyq.objects.filter(student_year=sem_year,branch_name=branch)
-    length = len(pyq_year1)
-    li = []
-    for i in range(length):
-        li.append(pyq_year1[i].year)
-    print(f'{pyq_year1[1].year} -_________________________________----------')
-    print(set(li))
-    return render(request, 'year_wise.html',{'show':pyq_year,'data':pyq_year1,'date':set(li)})
+    pyq_year1 = pdf_formate.objects.filter(student_year=sem_year,branch_name=branch)
+    pyq_pdf1 = pdf_formate.objects.filter(student_year=sem_year,branch_name=branch,year=year)
+    # print(f'{pyq_pdf[0].pyq_pdf}  ---------------')
+    return render(request, 'year_wise.html',{'show':pyq_year,'data':pyq_year1,'pdf':pyq_pdf1[0].pyq_pdf})
+
+
 
 def def_about(request):
     return render(request, 'about.html')
