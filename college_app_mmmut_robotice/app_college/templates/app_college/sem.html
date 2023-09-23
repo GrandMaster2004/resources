@@ -1,0 +1,55 @@
+{% extends 'app_college/base.html' %} 
+{% block 'title' %}home.html{% endblock %}
+{% block 'maincontent' %} 
+{% load static %}
+<style>
+body{
+  background-image: url("../static/app_college/images/bg6.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+</style>
+<link rel="stylesheet" href="../static/app_college/css/sem.css" />
+
+
+<div class="semcontent">
+    <!-- Side navbar -->
+    <div class="sidenav">
+      {% for i in event %}
+      <a href="/event_show/{{i.event_id}}">{{i.event_title}}</a>
+      <!-- <a href="#">ELECTRO NFS</a>
+      <a href="#">BOMB DIFFUSION</a>
+      <a href="#">SHERLOCKED</a>
+      <a href="#">ELECTRONIC CHESS</a>
+      <a href="#">ELECTRONIC ART</a>
+      <a href="#">CLADDING THE CODE</a>
+      <a href="#">WEB QUEST</a> -->
+      {% endfor %}
+    </div>
+
+    <!-- Main content -->
+    <div style="margin-left: 200px; padding: 20px;">
+      
+      <h1 class="text_main">ROBOMANIA'23</h1>
+      <section class="first">
+        <p>Robomania is the coalescence of caliber and rewards, technical expertise and valor where budding engineers and technology enthusiasts can showcase their innovative ideas and skills. 
+          Participants have the opportunity to collaborate with other like-minded individuals. Robomania is a must-attend event for anyone interested in pushing the boundaries of what is possible in the field of robotics.
+        </p>
+        <a class="btn1">Explore</a>
+        <ul>
+          <li class="text_li">50K+ Prize Money</li>
+          <li class="text_li">25+ Events</li>
+          <li class="text_li">42K+ Participants</li>
+        </ul>
+      </section>
+
+      <section>
+
+      </section>
+    </div>
+
+</div>
+
+{% endblock %}

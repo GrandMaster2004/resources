@@ -1,0 +1,31 @@
+{% extends 'resorces_app/base.html' %}
+
+{% block 'title' %}pyq_show{% endblock %}
+{% load static %}
+{% block 'mainContent' %}
+
+    <!-- {% for i in data %}
+        {{i.branch_name}}<br><br>
+        {{i.pyq_Image}}<br>
+        <img src="/media/{{i.pyq_Image}}" alt="images"><br><br>
+
+        {{i.pyq_details}}<br><br>
+        {{i.pyq_id}}<br><br>
+        
+    {% endfor %} -->
+    
+<!-- Side navbar -->
+<navbar>
+  <a href="/pyq_year/1/{{branch}}">{{branch}}-I</a>
+  <a href="/pyq_year/2/{{branch}}">{{branch}}-II</a>
+  <a href="/pyq_year/3/{{branch}}">{{branch}}-III</a>
+  <a href="/pyq_year/4/{{branch}}">{{branch}}-IV</a>
+</navbar>
+
+<!-- Main content -->
+<div class="main">
+<!-- <h2>Previous Year Question Paper</h2> -->
+<h2>Please Select The Year</h2>
+</div>
+
+{% endblock %}
